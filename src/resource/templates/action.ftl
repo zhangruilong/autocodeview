@@ -32,7 +32,7 @@ public class ${entity.name}Action extends BaseAction {
 		queryinfo.setQuery(DAO.getQuerysql(queryinfo.getQuery()));
 		queryinfo.setOrder(${entity.name}Poco.ORDER);
 		cuss = (ArrayList<${entity.name}>) DAO.selAll(queryinfo);
-		FileUtil.expExcel(response,cuss,${entity.name}Poco.CHINESENAME,${entity.name}Poco.KEYCOLUMN,${entity.name}Poco.NAME);
+		FileUtil.expExcel(response,cuss,${entity.name}Poco.CHINESENAME,${entity.name}Poco.NAME);
 	}
 	//查询所有
 	public void selAll(HttpServletRequest request, HttpServletResponse response){
