@@ -44,7 +44,7 @@ public class ${entity.name}Action extends BaseActionDao {
 		Queryinfo queryinfo = getQueryinfo(request);
 		queryinfo.setType(${entity.name}.class);
 		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(${entity.name}Poco.ORDER);
+		if(CommonUtil.isNull(queryinfo.getOrder())) queryinfo.setOrder(${entity.name}Poco.ORDER);
 		cuss = (ArrayList<${entity.name}>) selAll(queryinfo);
 		FileUtil.expExcel(response,cuss,${entity.name}Poco.CHINESENAME,${entity.name}Poco.NAME);
 	}
@@ -53,7 +53,7 @@ public class ${entity.name}Action extends BaseActionDao {
 		Queryinfo queryinfo = getQueryinfo(request);
 		queryinfo.setType(${entity.name}.class);
 		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(${entity.name}Poco.ORDER);
+		if(CommonUtil.isNull(queryinfo.getOrder())) queryinfo.setOrder(${entity.name}Poco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
 		responsePW(response, result);
@@ -63,7 +63,7 @@ public class ${entity.name}Action extends BaseActionDao {
 		Queryinfo queryinfo = getQueryinfo(request);
 		queryinfo.setType(${entity.name}.class);
 		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(${entity.name}Poco.ORDER);
+		if(CommonUtil.isNull(queryinfo.getOrder())) queryinfo.setOrder(${entity.name}Poco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
 		responsePW(response, result);
